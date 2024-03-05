@@ -1,0 +1,17 @@
+{
+  "name": "ports",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node --watch index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.3",
+    "pug": "^3.0.2",
+    "sqlite3": "^5.1.7"
+  }
+}

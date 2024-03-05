@@ -1,0 +1,48 @@
+// header start
+header#home.header-style-2
+  .main-header.navbar-searchbar
+    .container-fluid-lg
+      .row
+        .col-lg-12
+          .main-menu
+            .menu-left
+              .brand-logo
+                a(href='index.html')
+                  svg.svg-icon
+                    use.fill-color(xlink:href='assets/svg/icons.svg#logo')
+                  img.img-fluid.blur-up.lazyload(src='assets/images/logo.png' alt='logo')
+            nav
+              .main-navbar
+                #mainnav
+                  .toggle-nav
+                    i.fa.fa-bars.sidebar-bar
+                  ul.nav-menu
+                    li.back-btn.d-xl-none
+                      .close-btn
+                        | &Mcy;&iecy;&ncy;&yucy;
+                        span.mobile-back
+                          i.fa.fa-angle-left
+                    li.mega-menu.dropdown.ratio_40
+                      a.nav-link.menu-title(href='javascript:void(0)')
+                        .gradient-title &Ocy;&fcy;&icy;&scy;&ncy;&ycy;&iecy; &pcy;&rcy;&icy;&ncy;&acy;&dcy;&lcy;&iecy;&zhcy;&ncy;&ocy;&scy;&tcy;&icy;
+                    li.dropdown
+                      a.nav-link.menu-title(href='javascript:void(0)') &SHcy;&kcy;&ocy;&lcy;&softcy;&ncy;&ycy;&iecy; &pcy;&rcy;&icy;&ncy;&acy;&dcy;&lcy;&iecy;&zhcy;&ncy;&ocy;&scy;&tcy;&icy;
+                    li.dropdown
+                      a.nav-link.menu-title(href='javascript:void(0)') &Tcy;&vcy;&ocy;&rcy;&chcy;&iecy;&scy;&kcy;&icy;&iecy; &mcy;&acy;&tcy;&iecy;&rcy;&icy;&acy;&lcy;&ycy;
+            .menu-right
+              ul
+                li
+                  .search-box
+                    i(data-feather='search')
+                li.onhover-dropdown.cart-dropdown
+                  button.btn.btn-solid-default.btn-spacing(type='button')
+                    i.pe-2(data-feather='shopping-cart')
+                    span $5686.25
+            .search-full
+              .input-group
+                span.input-group-text
+                  i.font-light(data-feather='search')
+                input.form-control.search-type(type='text' placeholder='Поиск..')
+                span.input-group-text.close-search
+                  i.font-light(data-feather='x')
+// header end

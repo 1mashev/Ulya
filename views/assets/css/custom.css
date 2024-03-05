@@ -1,0 +1,16 @@
+.onhover-dropdown.cart-dropdown button .feather {
+  margin-right: 0;
+}
+.home-style-2 .left-content .home-content h3 {
+  margin-bottom: calc((40 - 20) * ((100vw - 320px) / (1920 - 320)));
+}
+.td {
+  text-decoration: line-through;
+}
+.main-price h3 {
+  min-width: 100px;
+}
+
+header .main-navbar .nav-menu > li.dropdown .menu-title::after {
+  display: none;
+}

@@ -1,0 +1,45 @@
+include components/head.pug
+include components/header.pug
+include components/breadcrumb.pug
+// Shop Section start
+section.section-b-space
+  .container
+    .row
+      .col-lg-12.col-12.ratio_30
+        .row.g-4
+          // label and featured section
+          .col-12
+        // Prodcut setion
+        .row.g-sm-4.g-3.row-cols-xl-4.row-cols-lg-4.row-cols-md-3.row-cols-2.gx-sm-4.gx-3.mt-1.custom-gy-5.product-style-2.ratio_asos.product-list-section
+          each product in products
+            div
+              .product-box
+                .img-wrapper
+                  .front
+                    a(href=`/product/${product.id}`)
+                      img.imgAuto.blur-up.lazyload(src=`/assets/images/products/${product.url}.jpg` alt=product.name width='261' height="348")
+                    .cart-wrap
+                      ul
+                        li
+                          a.addtocart-btn(href='javascript:void(0)' data-bs-toggle='modal' data-bs-target='#addtocart')
+                            i(data-feather='shopping-bag')
+                            |  в корзину
+                  if product.sale > 0
+                    .label-block
+                      span.label.label-theme #{product.sale * 100}%
+                .product-details
+                  .rating-details
+                    h3.theme-color #{product.price} сом
+                    if product.sale > 0
+                      h3.tdl #{product.price * (1 + product.sale)} сом
+                  .main-price
+                    a.font-default(href='product-left-sidebar.html')
+                      h5 #{product.name}
+
+
+// Shop Section end
+
+
+
+include components/footer.pug
+include components/scripts.pug

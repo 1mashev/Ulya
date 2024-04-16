@@ -1,0 +1,49 @@
+
+
+include components/head.pug
+include components/header.pug
+include components/breadcrumb.pug
+
+
+
+// Shop Section start
+section
+  .container
+    .row.gx-4.gy-5
+      .col-12
+        .details-items
+          .row.g-4
+            .col-md-6
+              .degree-section
+                .details-image.ratio_asos
+                  div
+                    .product-image-tag
+                      img#zoom_01.img-fluid.w-100.image_zoom_cls-0.blur-up.lazyload(src=`/assets/images/products/${product.url}.jpg` alt='')
+                      .label-tag
+                        h6
+                          i.fas.fa-star
+                          |  4.8
+                          span.font-light 120
+            .col-md-6
+              .cloth-details-size
+                .details-image-concept
+                  h2 #{product.name}
+                ul.product-count.shipping-order
+                  li
+                    img.img-fluid.blur-up.lazyload(src=`/assets/images/gif/truck.png` alt='image')
+                    span.lang Бесплатная доставка для заказов свыше 1000 сом
+                h3.price-detail
+                  | #{product.price}
+                  del #{product.price * (1 + product.sale)} сом
+                  span скидка #{product.sale * 100}%
+                .part
+                .product-buttons
+                  a#cartEffect.btn.btn-solid.hover-solid.btn-animation(href='javascript:void(0)')
+                    i.fa.fa-shopping-cart
+                    span В корзину
+// Shop Section end
+
+
+
+include components/footer.pug
+include components/scripts.pug

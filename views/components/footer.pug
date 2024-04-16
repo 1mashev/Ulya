@@ -1,24 +1,84 @@
 // footer start
 footer.footer-sm-space
-  .sub-footer
+  .main-footer
     .container
-      .row.gy-3
-        .col-md-6
-          ul
-            li.font-dark &Mcy;&ycy; &pcy;&rcy;&icy;&ncy;&iecy;&mcy;&acy;&iecy;&mcy;:
-            li
-              a(href='javascript:void(0)')
-                img.img-fluid.blur-up.lazyload(src='assets/images/payment-icon/1.jpg' alt='payment icon')
-            li
-              a(href='javascript:void(0)')
-                img.img-fluid.blur-up.lazyload(src='assets/images/payment-icon/2.jpg' alt='payment icon')
-            li
-              a(href='javascript:void(0)')
-                img.img-fluid.blur-up.lazyload(src='assets/images/payment-icon/3.jpg' alt='payment icon')
-            li
-              a(href='javascript:void(0)')
-                img.img-fluid.blur-up.lazyload(src='assets/images/payment-icon/4.jpg' alt='payment icon')
-        .col-md-6
-          p.mb-0.font-dark
-            | &copy; 2024 &Scy;&dcy;&iecy;&lcy;&acy;&lcy;&acy; &Kcy;&icy;&rcy;&icy;&chcy;&iecy;&ncy;&kcy;&ocy; &YUcy;&lcy;&softcy;&yacy; &Acy;&ncy;&acy;&tcy;&ocy;&lcy;&softcy;&iecy;&vcy;&ncy;&acy;
+      .row.gy-4
+        .col-xl-3.col-lg-4.col-md-6
+          .footer-contact
+            .brand-logo
+              a.footer-logo(href='index.html')
+                img.img-fluid.blur-up.lazyload(src='/assets/images/logo_pr.png' alt='logo' width="130px")
+            ul.contact-lists
+              li
+                span
+                  b phone:
+                  span.font-light  + 185659635
+              li
+                span
+                  b Address:
+                  span.font-light
+                    | 1418 Riverwood Drive, Suite 3245
+                    | Cottonwood, CA 96052, United States
+              li
+                span
+                  b Email:
+                  span.font-light  Voxo123@gmail.com
+        .col-lg-2.col-md-4.col-sm-6
+          .footer-links
+            .footer-title
+              h3 About us
+            .footer-content
+              ul
+                li
+                  a.font-dark(href='index.html') Home
+                li
+                  a.font-dark(href='shop-left-sidebar.html') Shop
+                li
+                  a.font-dark(href='about-us.html') About Us
+                li
+                  a.font-dark(href='blog-details.html') Blog
+                li
+                  a.font-dark(href='contact-us.html') Contact
+        .col-xl-2.col-lg-3.col-md-4.col-sm-6
+          .footer-links
+            .footer-title
+              h3 New Categories
+            .footer-content
+              ul
+                li
+                  a.font-dark(href='shop-left-sidebar.html') Latest Shoes
+                li
+                  a.font-dark(href='shop-left-sidebar.html') Branded Jeans
+                li
+                  a.font-dark(href='shop-left-sidebar.html') New Jackets
+                li
+                  a.font-dark(href='shop-left-sidebar.html') Colorfull Hoodies
+                li
+                  a.font-dark(href='shop-left-sidebar.html') Shiner Goggles
+        .col-xl-2.col-lg-3.col-md-4.col-sm-6
+          .footer-links
+            .footer-title
+              h3 Get Help
+            .footer-content
+              ul
+                li
+                  a.font-dark(href='user-dashboard.html') Your Orders
+                li
+                  a.font-dark(href='user-dashboard.html') Your Account
+                li
+                  a.font-dark(href='order-tracking.html') Track Orders
+                li
+                  a.font-dark(href='wishlist.html') Your Wishlist
+                li
+                  a.font-dark(href='faq.html') Shopping FAQs
+        .col-xl-3.col-lg-4.col-sm-6.d-none.d-sm-block
+          .footer-newsletter
+            h3 Let&rsquo;s stay in touch
+            form#mc-embedded-subscribe-form.form-newsletter.needs-validation(action='https://pixelstrap.us19.list-manage.com/subscribe/post?u=5a128856334b598b395f1fc9b&id=082f74cbda' method='post' name='mc-embedded-subscribe-form' target='_blank')
+              .input-group.mb-4
+                input.form-control(type='text' placeholder='Your Email Address')
+                span#basic-addon4.input-group-text
+                  i.fas.fa-arrow-right
+              p.font-dark.mb-0
+                | Keep up to date with our latest news and special offers.
 // footer end

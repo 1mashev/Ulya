@@ -34,6 +34,50 @@ app.get('/shop', (req, res) => {
   })
 })
 
+app.get('/office-shop', (req, res) => {
+  database.getProductByCategory('office', (err, products) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ error: 'Ошибка при получении товаров из базы данных' })
+    }
+    res.render('shop', { products })
+  })
+})
+
+app.get('/shool-shop', (req, res) => {
+  database.getProductByCategory('shool', (err, products) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ error: 'Ошибка при получении товаров из базы данных' })
+    }
+    res.render('shop', { products })
+  })
+})
+
+app.get('/art-shop', (req, res) => {
+  database.getProductByCategory('art', (err, products) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ error: 'Ошибка при получении товаров из базы данных' })
+    }
+    res.render('shop', { products })
+  })
+})
+
+app.get('/sale-shop', (req, res) => {
+  database.getSaleProducts((err, products) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ error: 'Ошибка при получении товаров из базы данных' })
+    }
+    res.render('shop', { products })
+  })
+})
+
 app.get('/contacts', (req, res) => {
   database.getAllProducts((err, products) => {
     if (err) {
@@ -42,6 +86,17 @@ app.get('/contacts', (req, res) => {
         .json({ error: 'Ошибка при получении товаров из базы данных' })
     }
     res.render('contacts', { products })
+  })
+})
+
+app.get('/about-us', (req, res) => {
+  database.getAllProducts((err, products) => {
+    if (err) {
+      return res
+        .status(500)
+        .json({ error: 'Ошибка при получении товаров из базы данных' })
+    }
+    res.render('about-us', { products })
   })
 })
 

@@ -1,0 +1,70 @@
+include components/head.pug
+include components/header.pug
+
+
+// Breadcrumb section start
+section.breadcrumb-section.section-b-space
+  ul.circles
+    li
+    li
+    li
+    li
+    li
+    li
+    li
+    li
+    li
+    li
+  .container
+    .row
+      .col-12
+        h3 О компании
+// Breadcrumb section end
+
+// team leader section Start
+section.overflow-hidden
+  .container
+    .row.g-5
+      .col-xl-5.offset-xl-1
+        .row.g-3
+          .col-12
+            div
+              img(src='/assets/images/inner-page/review-image/1.jpg' alt='')
+      .col-xl-5
+        .about-details
+          div
+            h2 О нас
+            p
+              | Компания “KANZLER” (Канцлер) начала работу в 1999 году в качестве поставщика в
+              | Кыргызскую Республику от концерна BASF AG профессиональных носителей информации для
+              | телерадиокомпаний. В 2003 году начинает работу компания Bürger (Бюргер), осуществляя
+              | поставки расходных материалов для типографий Кыргызстана от ведущих производителей
+              | Европы.            p
+// team leader section End
+
+include components/sections/serviceSection.pug
+
+
+// team leader section Start
+section.overflow-hidden
+  .container
+    .row.g-5
+      .col-xl-5
+        .about-details
+          div
+            h2 Ассортимент
+            p
+              | Благодаря доверию наших клиентов и качеству товаров, ассортимент
+              | продуктов, поставляемых компаниями Kanzler&Bürger, постоянно
+              | расширяется: на сегодняшний день предлагается более 6000 наименований
+              | различных продуктов.
+      .col-xl-5.offset-xl-1
+        .row.g-3
+          .col-12
+            div
+              img(src='/assets/images/inner-page/review-image/3.jpg' alt='')
+// team leader section End
+
+
+include components/footer.pug
+include components/scripts.pug

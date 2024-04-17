@@ -19,13 +19,13 @@ section.ratio_asos
                     .img-wrapper
                       .front
                         a(href=`/product/${product.id}`)
-                          img.blur-up.lazyload(src=`/assets/images/products/${product.url}.jpg` alt=product.name width='261' height="348")
+                          img.blur-up.lazyload(src=`${product.url}` alt=product.name width='261' height="348")
                         .cart-wrap
                           ul
                             li
-                              a.addtocart-btn(href='javascript:void(0)' data-bs-toggle='modal' data-bs-target='#addtocart')
-                                i(data-feather='shopping-bag')
-                                |  в корзину
+                              //- a.addtocart-btn(href='javascript:void(0)' data-bs-toggle='modal' data-bs-target='#addtocart')
+                              //-   i(data-feather='shopping-bag')
+                              //-   |  в корзину
                       .label-block
                         <span class="label label-theme">#{product.sale * 100}%</span>
                     .product-details

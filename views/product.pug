@@ -18,7 +18,7 @@ section
                 .details-image.ratio_asos
                   div
                     .product-image-tag
-                      img#zoom_01.img-fluid.w-100.image_zoom_cls-0.blur-up.lazyload(src=`/assets/images/products/${product.url}.jpg` alt='')
+                      img#zoom_01.img-fluid.w-100.image_zoom_cls-0.blur-up.lazyload(src=`${product.url}` alt='')
                       .label-tag
                         h6
                           i.fas.fa-star
@@ -31,16 +31,17 @@ section
                 ul.product-count.shipping-order
                   li
                     img.img-fluid.blur-up.lazyload(src=`/assets/images/gif/truck.png` alt='image')
-                    span.lang Бесплатная доставка для заказов свыше 1000 сом
+                    span.lang Бесплатная доставка для заказов свыше 5000 сом
                 h3.price-detail
-                  | #{product.price}
-                  del #{product.price * (1 + product.sale)} сом
-                  span скидка #{product.sale * 100}%
+                  | #{product.price} сом
+                  if product.sale > 0
+                    del #{product.price * (1 + product.sale)} сом
+                    span скидка #{product.sale * 100}%
                 .part
                 .product-buttons
                   a#cartEffect.btn.btn-solid.hover-solid.btn-animation(href='javascript:void(0)')
                     i.fa.fa-shopping-cart
-                    span В корзину
+                    span Купить
 // Shop Section end
 
 

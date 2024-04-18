@@ -15,6 +15,14 @@ function initializeDatabase() {
       'INSERT INTO products (name, price, url, category, sale) VALUES (?, ?, ?, ?, ?)',
     )
     stmt.run(
+      'Рюкзак ErichKrause EasyLine® 17L Жил-был Пес ',
+      4000,
+      '/assets/images/products/shool/1.jpg',
+      'shool',
+      0.3,
+    )
+
+    stmt.run(
       'Дырокол ErichKrause Elegance Classic до 20 листов',
       280,
       '/assets/images/products/office/Дырокол ErichKrause Elegance Classic до 20 листов (цена 280с).jpg',
@@ -225,14 +233,14 @@ function initializeDatabase() {
       'shool',
       0,
     )
-
     stmt.run(
-      'Рюкзак BrunoVisconti «DONUT»',
-      7800,
-      '/assets/images/products/shool/Рюкзак BrunoVisconti «DONUT» (цена 7800с).jpeg',
+      'Рюкзак BrunoVisconti® «ВОЛШЕБНЫЕ ЛИСЫ»',
+      7000,
+      '/assets/images/products/shool/2.jpeg',
       'shool',
       0.3,
     )
+
     stmt.run(
       'Сумка-шоппер ErichKrause 10L Pastel Bloom',
       2000,
@@ -268,31 +276,25 @@ function initializeDatabase() {
       'shool',
       0,
     )
+
     stmt.run(
-      'Рюкзак Visconti not',
-      5500,
-      '/assets/images/products/shool/1.jpg',
-      'shool',
-      0.3,
-    )
-    stmt.run(
-      'Рюкзак DONUT',
-      8450,
-      '/assets/images/products/shool/2.jpeg',
-      'shool',
-      0.3,
-    )
-    stmt.run(
-      'Рюкзак Bruno "Bruno"',
-      7450,
+      'Рюкзак Herlitz Bliss Unicorn Night"',
+      10000,
       '/assets/images/products/shool/3.jpg',
       'shool',
       0.3,
     )
     stmt.run(
-      'Рюкзак ErichKrause Классика',
-      7450,
+      'Рюкзак MILAN "1918"',
+      4000,
       '/assets/images/products/shool/4.jpg',
+      'shool',
+      0.3,
+    )
+    stmt.run(
+      'Рюкзак BrunoVisconti «DONUT»',
+      7800,
+      '/assets/images/products/shool/Рюкзак BrunoVisconti «DONUT» (цена 7800с).jpeg',
       'shool',
       0.3,
     )

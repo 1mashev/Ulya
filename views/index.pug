@@ -10,8 +10,7 @@ section.ratio_asos
         .row.m-0
           .col-sm-12.p-0
           .title.title-2.text-center
-            h2 рекомендуемые товары
-            <h5 class="text-color">Our collection</h5>
+            h2.mb-5 рекомендуемые товары <br />
             .product-wrapper.product-style-2.row.g-sm-4.g-3
               each product in products
                 .col-xl-3.col-lg-4.col-6
@@ -30,8 +29,8 @@ section.ratio_asos
                         <span class="label label-theme">#{product.sale * 100}%</span>
                     .product-details
                       .rating-details
-                        h3.theme-color #{product.price * (1 + product.sale)} сом
-                        h3.tdl #{product.price} сом
+                        h3.theme-color #{product.price} сом
+                        h3.tdl #{product.price * (1 + product.sale)} сом
                       .main-price
                         a.font-default(href='product-left-sidebar.html')
                           h5 #{product.name}

@@ -41,9 +41,13 @@ header#home.header-style-2
                 li
                   .search-box
                     i(data-feather='search')
-                //- li.onhover-dropdown.cart-dropdown
-                //-   button.btn.btn-solid-default.btn-spacing(type='button')
-                //-     i.pe-2(data-feather='shopping-cart')
+                li.onhover-dropdown.cart-dropdown
+                  button.btn.btn-solid-default.btn-spacing(type='button')
+                    a(href='/login') 
+                      i.pe-2(data-feather='user')
+                li.onhover-dropdown.cart-dropdown
+                  button.btn.btn-solid-default.btn-spacing(type='button')
+                    i.pe-2(data-feather='shopping-cart')
             .search-full
               .input-group
                 span.input-group-text

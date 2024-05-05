@@ -1,0 +1,29 @@
+include components/head.pug
+include components/header.pug
+
+// Добавляем атрибут id к форме для удобства обращения к ней из JavaScript
+form#loginForm(action='/login', method='POST')
+  .login-section
+    .materialContainer
+      .box
+        .login-title
+          h2 Войти
+        .input
+          label(for='name') Логин
+          input#name(type='text' name='name' required='')
+          span.spin
+          .valid-feedback Пожалуйста введите логин
+        .input
+          label(for='pass') Пароль
+          input#pass(type='password' name='pass')
+          span.spin
+        .button.login
+          // Заменяем onclick на событие submit формы
+          button(type='submit')
+            span Войти
+            i.fa.fa-check
+        p.sign-category
+          a.theme-color(href='register') Регистрация
+
+include components/footer.pug
+include components/scripts.pug

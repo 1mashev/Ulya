@@ -1,0 +1,39 @@
+include components/head.pug
+include components/header.pug
+
+
+form#registerForm(action='/register', method='POST')
+  .login-section
+    .materialContainer
+      .box
+        .login-title
+          h2 Регистрация
+        .input
+          label(for='name') Логин
+          input#name(type='text' name='name' required='')
+          span.spin
+          .valid-feedback Пожалуйста введите логин
+        .input
+          label(for='email') Email
+          input#email(type='email' name='email' required='')
+          span.spin
+          .valid-feedback Пожалуйста введите email
+        .input
+          label(for='pass') Пароль
+          input#pass(type='password' name='pass' required='')
+          span.spin
+        .input
+          label(for='confirmPass') Подтвердите пароль
+          input#confirmPass(type='password' name='confirmPass' required='')
+          span.spin
+        .button.login
+          button(type='submit')
+            span Зарегистрироваться
+            i.fa.fa-check
+        p.sign-category
+          a.theme-color(href='login.html') Зарегистрироватся
+
+          
+
+include components/footer.pug
+include components/scripts.pug

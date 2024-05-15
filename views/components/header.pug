@@ -38,13 +38,17 @@ header#home.header-style-2
                       a.nav-link.menu-title(href='/contacts') контакты
             .menu-right
               ul
-                li
-                  .search-box
-                    i(data-feather='search')
+                //- li
+                  //- .search-box
+                    //- i(data-feather='search')
                 li.onhover-dropdown.cart-dropdown
-                  button.btn.btn-solid-default.btn-spacing(type='button')
-                    a(href='/login') 
-                      i.pe-2(data-feather='user')
+                  button.btn.btn-solid-default.btn-spacing(type='button')                
+                    if isAuthenticated 
+                      a(href='/user-dashboard') 
+                        i.pe-2(data-feather='user')
+                    else
+                      a(href='/login') 
+                        i.pe-2(data-feather='user')
                 li.onhover-dropdown.cart-dropdown
                   button.btn.btn-solid-default.btn-spacing(type='button')
                     i.pe-2(data-feather='shopping-cart')
@@ -56,3 +60,5 @@ header#home.header-style-2
                 span.input-group-text.close-search
                   i.font-light(data-feather='x')
 // header end
+
+

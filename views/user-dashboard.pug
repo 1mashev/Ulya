@@ -1,0 +1,64 @@
+
+include components/head.pug
+include components/header.pug
+
+// Breadcrumb section start
+section.breadcrumb-section.section-b-space
+  ul.circles
+    li
+    li
+    li
+    li
+    li
+    li
+    li
+    li
+    li
+    li
+  .container
+    .row
+      .col-12
+        h3  
+          | Привет, 
+          span.ucase #{user.name}
+// Breadcrumb section end
+
+// user dashboard section start
+section.section-b-space
+  .container
+    .row
+      .col-lg-3
+        ul#myTab.nav.nav-tabs.custome-nav-tabs.flex-column.category-option
+          li.nav-item.mb-2
+            button#tab.nav-link.font-light.active(data-bs-toggle='tab' data-bs-target='#dash' type='button')
+              i.fas.fa-angle-right
+              | Пользователь
+      .col-lg-9
+        .filter-button.dash-filter.dashboard
+          button.btn.btn-solid-default.btn-sm.fw-bold.filter-btn
+            | Show Menu
+        #myTabContent.tab-content
+          #dash.tab-pane.fade.show.active
+            .dashboard-right
+              .dashboard
+                .page-title.title.title1.title-effect
+                  h2 Панель пользователя
+                .welcome-msg
+                  h6.font-light
+                    | Привет, 
+                    span #{user.name}
+                  p.font-light
+                    | Добро пожаловать в вашу панель управления!
+                    | Здесь вы можете настроить свой аккаунт, просмотреть последние обновления
+                    | и получить доступ к всем нашим функциям. Если у вас возникнут вопросы или
+                    | вам понадобится помощь, не стесняйтесь обращаться к нам.
+                    | Мы готовы помочь вам в любое время. Приятного использования!
+                //- Добавляем кнопку выхода
+                form(action='/logout', method='post')
+                  button.btn.btn-solid-default.btn-sm.fw-bold.filter-btn(type='submit')
+                    | Выйти
+// user dashboard section end
+
+include components/footer.pug
+include components/scripts.pug
+

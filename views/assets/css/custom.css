@@ -14,30 +14,33 @@
 header .main-navbar .nav-menu > li.dropdown .menu-title::after {
   display: none;
 }
-.product-box .product-details h5{
+.product-box .product-details h5 {
   height: 57px;
   width: 100%;
 }
 
-
-header .main-menu{
+header .main-menu {
   padding: 0;
 }
 
-header.nav-down.nav-up .main-menu{
+header.nav-down.nav-up .main-menu {
   padding: 0;
 }
 
-.tdl{
+.tdl {
   text-decoration: line-through;
 }
 
-
-.imgAuto{
+.imgAuto {
   margin: auto;
   display: block;
 }
 
-.according-menu{
+.according-menu {
   display: none;
+}
+
+.ucase {
+  text-transform: uppercase;
+  color: red;
 }

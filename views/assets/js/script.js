@@ -741,6 +741,16 @@ $(document).mouseup(function (e) {
     }
   });
 
+  function trimInputWhitespace() {
+    $('input[type="text"], input[type="password"]').each(function () {
+      $(this).val($.trim($(this).val()));
+    });
+  }
+
+  // Вызов функции при отправке формы
+  $("form").submit(function () {
+    trimInputWhitespace();
+  });
 });
 
 /*=====================
@@ -755,4 +765,3 @@ $(".dropdown .dropdown-menu li").click(function () {
   $(this).parents(".dropdown").find("span").text($(this).text());
   $(this).parents(".dropdown").find("input").attr("value", $(this).attr("id"));
 });
-

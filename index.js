@@ -15,6 +15,10 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({ secret: "secret", resave: false, saveUninitialized: true }));
 
 app.use(express.static(path.join(__dirname, "views")));
+app.use((req, res, next) => {
+  res.locals.isAuthenticated = req.session.user ? true : false;
+  next();
+});
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
 
@@ -140,13 +144,22 @@ app.get("/login", (req, res) => {
 // Маршрут для обработки запроса на вход
 app.post("/login", (req, res) => {
   const { name, pass } = req.body;
-  const user = users.find((user) => user.name === name && user.pass === pass);
-  if (user) {
-    req.session.user = user;
-    res.redirect("/dashboard");
-  } else {
-    res.send("Неверный логин или пароль");
-  }
+  db.get(
+    "SELECT * FROM users WHERE name = ? AND pass = ?",
+    [name, pass],
+    (err, user) => {
+      if (err) {
+        console.error("Ошибка при поиске пользователя:", err);
+        return res.status(500).send("Ошибка сервера");
+      }
+      if (user) {
+        req.session.user = user;
+        res.redirect("/user-dashboard");
+      } else {
+        res.send("Неверный логин или пароль");
+      }
+    },
+  );
 });
 
 // Маршрут для страницы регистрации
@@ -158,27 +171,103 @@ app.get("/register", (req, res) => {
 app.post("/register", (req, res) => {
   const { name, pass } = req.body;
 
-  // Проверяем, существует ли уже пользователь с таким именем
-  if (users.some((user) => user.name === name)) {
-    return res.send("Пользователь с таким логином уже существует");
-  }
-
-  // Добавляем нового пользователя в массив
-  users.push({ name, pass });
-
-  // В реальном приложении здесь будет код добавления пользователя в базу данных
-
-  // После успешной регистрации перенаправляем пользователя на другую страницу
-  res.redirect("/login");
+  db.run(
+    "INSERT INTO users (name, pass) VALUES (?, ?)",
+    [name, pass],
+    function (err) {
+      if (err) {
+        console.error("Ошибка при добавлении пользователя:", err);
+        return res.status(500).send("Ошибка сервера");
+      }
+      res.redirect("/login");
+    },
+  );
 });
 
 // Защищаем маршруты, доступ к которым должен быть только для авторизованных пользователей
-app.get("/dashboard", (req, res) => {
+app.get("/user-dashboard", (req, res) => {
   if (req.session.user) {
-    res.send(`Добро пожаловать, ${req.session.user.name}`);
+    res.render("user-dashboard", { user: req.session.user });
   } else {
     res.redirect("/login");
   }
+});
+
+// Маршрут для выхода из аккаунта
+app.post("/logout", (req, res) => {
+  // Удаляем сессию пользователя
+  req.session.destroy((err) => {
+    if (err) {
+      console.error("Ошибка при удалении сессии пользователя:", err);
+      return res.status(500).send("Ошибка сервера");
+    }
+    // После успешного выхода перенаправляем на главную страницу или куда-либо еще
+    res.redirect("/");
+  });
+});
+
+// Добавление товара в корзину
+app.post("/add-to-cart", (req, res) => {
+  const { userId, productId, quantity } = req.body;
+
+  db.run(
+    "INSERT INTO cart (userId, productId, quantity) VALUES (?, ?, ?)",
+    [userId, productId, quantity],
+    function (err) {
+      if (err) {
+        console.error("Ошибка при добавлении товара в корзину:", err);
+        return res.status(500).send("Ошибка сервера");
+      }
+      res.redirect("/cart");
+    },
+  );
+});
+
+// Просмотр содержимого корзины
+app.get("/cart", (req, res) => {
+  // Проверяем, авторизован ли пользователь
+  if (!req.session.user) {
+    return res.redirect("/login"); // Перенаправляем на страницу входа, если пользователь не авторизован
+  }
+
+  const userId = req.session.user.id;
+
+  db.all(
+    "SELECT products.*, cart.quantity FROM cart INNER JOIN products ON cart.productId = products.id WHERE cart.userId = ?",
+    [userId],
+    (err, items) => {
+      if (err) {
+        console.error("Ошибка при получении содержимого корзины:", err);
+        return res.status(500).send("Ошибка сервера");
+      }
+      res.render("cart", { items });
+    },
+  );
+});
+
+// Удаление товара из корзины
+app.post("/remove-from-cart", (req, res) => {
+  const { userId, productId } = req.body;
+
+  db.run(
+    "DELETE FROM cart WHERE userId = ? AND productId = ?",
+    [userId, productId],
+    function (err) {
+      if (err) {
+        console.error("Ошибка при удалении товара из корзины:", err);
+        return res.status(500).send("Ошибка сервера");
+      }
+      res.redirect("/cart");
+    },
+  );
+});
+
+// Маршрут для обновления количества товара в корзине
+app.post("/cart/update", (req, res) => {
+  const { productId, quantity } = req.body;
+  const userId = req.session.user.id;
+
+  // Обновите количество указанного товара в корзине пользователя
 });
 
 app.listen(PORT, () => {
